@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , Input} from '@angular/core';
+
+import { WikipediaService } from './wikipedia.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'https';
+  constructor(private wiki: WikipediaService){}
+
+  searchResult = [];
+
+  onSearch(e: string){
+    // console.log(e);
+    // const result = this.wiki.search(e);
+    // console.log(result);
+    
+    this.wiki.search(e).subscribe((res:any )=>{
+      this.searchResult = res.query.search;
+    })
+  }
 }
