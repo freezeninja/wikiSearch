@@ -1,4 +1,5 @@
-<form>
-    <input type="text" (input)="inputFires($event)">
-    <button type="submit" (click)="formSubmit($event)">Serch</button>
+<h2 class="text-center text-muted mb-4 mt-3">Wikipedia Search</h2>
+<form class="text-center">
+    <input type="text" class="m-2 form-control" (input)="inputFires($event)" placeholder="Type your keyword here">
+    <button type="submit" class="btn-primary btn m-2" (click)="formSubmit($event)">Search</button>
 </form>

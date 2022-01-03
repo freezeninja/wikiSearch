@@ -10,6 +10,8 @@ import { WikipediaService } from './wikipedia.service';
 export class AppComponent {
   constructor(private wiki: WikipediaService){}
 
+  isShown: boolean = false;
+
   searchResult = [];
 
   onSearch(e: string){
@@ -18,7 +20,12 @@ export class AppComponent {
     // console.log(result);
     
     this.wiki.search(e).subscribe((res:any )=>{
-      this.searchResult = res.query.search;
+      this.isShown = false;
+      console.log(res);
+      if(res.query.search.length > 0){        
+        this.isShown = true;
+      }
+       this.searchResult = res.query.search;
     })
   }
 }

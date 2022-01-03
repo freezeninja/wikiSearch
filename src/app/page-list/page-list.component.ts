@@ -6,9 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./page-list.component.css']
 })
 export class PageListComponent implements OnInit {
-@Input() pages = []
-  constructor() { }
+@Input() pages:any = [];
+@Input() isShown:any;
 
-  ngOnInit(): void { }
+// xss attack 
+xss = '<img src="" onerror="alert(1)" />';
+
+
+
+  constructor() {}
+
+  ngOnInit(): void {
+   }
 
 }
